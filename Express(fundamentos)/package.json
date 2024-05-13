@@ -1,0 +1,23 @@
+{
+  "name": "express_fundamentos",
+  "version": "1.0.0",
+  "description": "aprendizado de fundamentos de express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sidemarschimmelpfennig/NodeJs.git"
+  },
+  "author": "Sidemar Schimmelpfennig Junior",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sidemarschimmelpfennig/NodeJs/issues"
+  },
+  "homepage": "https://github.com/sidemarschimmelpfennig/NodeJs#readme",
+  "dependencies": {
+    "express": "^4.19.2"  
+  }
+}
