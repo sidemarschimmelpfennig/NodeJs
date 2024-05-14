@@ -46,7 +46,16 @@ SELECT * FROM user WHERE idade=22;
 
 DELETE FROM user where id=2; 
 
+# Deletando todos os registros 
+
+DELETE from user
+
 #  DELETAR TABELA
 
 DROP TABLE user;
 
+# UPDATE  Todos os campos 
+Update usuarios set email=NULL;
+
+# UPDATE  de campo especifico
+UPDATE usuarios Set idade= 25 where id = 4; 
