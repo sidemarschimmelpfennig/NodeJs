@@ -1,0 +1,15 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    color: #ffbb33;
+}
+
+nav{
+    height: 150px;
+    width: 100%;
+    background-color: #222;
+}

@@ -12,7 +12,7 @@ app.set("view engine", "ejs")
 app.set('views', path.join(__dirname, 'src', 'views'))
 
 app.get("/",(req, res)=>{
-    res.send('Bom dia');
+    res.render("index");
 })
 
 app.listen(server, ()=> console.log(`servidor rodando na porta : http://localhost:${server}`))
