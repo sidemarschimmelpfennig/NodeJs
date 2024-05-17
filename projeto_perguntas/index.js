@@ -1,18 +1,19 @@
-require("dotenv").config()
 const express = require("express");
-const path = require("path")
 
 const server = 3100;
-const app = express()
 
-app.use(express.static('public'))
+const app = express()
 
 app.set("view engine", "ejs")
 
-app.set('views', path.join(__dirname, 'src', 'views'))
+app.use(express.static('public'))
 
 app.get("/",(req, res)=>{
     res.render("index");
 })
+app.get('/perguntar', (req, res)=>{
+    res.render('perguntar')
+})
+
 
 app.listen(server, ()=> console.log(`servidor rodando na porta : http://localhost:${server}`))
