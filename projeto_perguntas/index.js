@@ -1,4 +1,5 @@
 const express = require("express");
+const routes = require("./routes.js")
 
 const server = 3100;
 
@@ -8,12 +9,6 @@ app.set("view engine", "ejs")
 
 app.use(express.static('public'))
 
-app.get("/",(req, res)=>{
-    res.render("index");
-})
-app.get('/perguntar', (req, res)=>{
-    res.render('perguntar')
-})
-
+app.use(routes)
 
 app.listen(server, ()=> console.log(`servidor rodando na porta : http://localhost:${server}`))

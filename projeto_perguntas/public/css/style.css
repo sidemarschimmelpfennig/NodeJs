@@ -1,0 +1,11 @@
+body{
+    background-color: #222222;
+}
+
+.card{
+    background-color: #ffbb33;
+}
+
+#formulario-pergunta{
+    margin-top: 10vh;
+}
