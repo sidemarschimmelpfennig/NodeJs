@@ -2,10 +2,40 @@ body{
     background-color: #222222;
 }
 
-.card{
+.cardYellow{
     background-color: #ffbb33;
 }
-
+.cardYellow label{
+    font-weight: bold;
+}
 #formulario-pergunta{
     margin-top: 10vh;
+}
+
+h3{
+    color: #fff;
+}
+
+.top{
+    color: #fff;
+}
+
+hr.top {
+    border: none;
+    height: 1px;
+    background-color: #fff;
+}
+
+.btnYellow{
+    background-color: #ffbb33;
+    color: #222222;
+}
+
+.btnYellow:hover{
+    background-color: #ffbb33e5;
+    color: #222222;
+}
+
+.yellowNav{
+    background: #ffbb33;
 }
