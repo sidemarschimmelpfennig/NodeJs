@@ -1,24 +1,47 @@
-require("dotenv").config()
+require('dotenv').config();
 const express = require("express");
-const path = require("path")
+const bodyParser = require("body-parser");
+const helmet = require('helmet');
+const cors = require('cors');
 
+const routes = require("./routes.js");
+const app = express();
+const connection = require('./database/database.js');
+const models = require('./database');
 
-const server = 3100;
+// Use helmet middleware
+app.use(helmet());
+app.use(cors())
 
+// Definir CSP
+app.use((req, res, next) => {
+    res.setHeader("Content-Security-Policy", "script-src 'self' https://code.jquery.com https://cdnjs.cloudflare.com");
+    next();
+  });
+  
+//Database Connection
+connection
+  .authenticate()
+  .then(() => {
+    console.log("Conectado ao Banco de Dados")
+  })
+  .catch((err) => {
+    console.log(err)
+  });
 
-const app = express()
+// Set views engine and location
+app.set("view engine", "ejs");
+app.use(express.static('public'));
 
-// Dizer ao express para utilizar o EJS como View Engine
-app.set("view engine", "ejs")
-app.set('views', path.join(__dirname, 'src', 'views'))
+// Use the bodyparser to execute the requirements
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
-app.get("/:nome/:lang",(req, res)=>{
-    res.render("index", {
-        nome: req.params.nome,
-        idade: 23,
-        sexo: "masculin",
-        lang: req.params.lang
-    })
-})
+// Use routes
+app.use(routes);
 
-app.listen(server, ()=> console.log(`servidor rodando na porta : http://localhost:${server}`))
+// Inite server 
+const server = process.env.SERVER_PORT || 3000; // Defina uma porta padrão, se SERVER_PORT não estiver definido
+app.listen(server, () => {
+  console.log(`Servidor rodando na porta: http://localhost:${server}`)
+});
