@@ -1,6 +1,7 @@
- // email => resolvido : "teste" - rejected: "fdsjhkfd"
 
-  // email => resolvido : "teste" - rejected: "fdsjhkfd"
+
+
+
 
 function enviaEmail(corpo , para){
     return new Promise((resolve, reject)=>{
@@ -20,24 +21,6 @@ function enviaEmail(corpo , para){
     })
 }
 
-
-enviaEmail("teste," , "teste")
-.then( ({time, to}) =>{
-    console.log(`
-    
-    email enviado com sucesso
-    
-        Time : ${to}
-
-        -----------------------
-        To : ${time}
-    `)
-})
-.catch( ()=>{
-    console.log('email não enviado')
-})
-
-
 function enviaEmail1(corpo , para){
     return new Promise((resolve, reject)=>{
         console.log('carregando email')
@@ -55,7 +38,6 @@ function enviaEmail1(corpo , para){
         }, 4000)
     })
 }
-
 
 
 function enviaEmail2(corpo , para){
@@ -79,5 +61,27 @@ function enviaEmail2(corpo , para){
 
 
 
+enviaEmail("teste," , "teste")
+.then( () => enviaEmail1("teste," , "teste").then( () =>{
+    enviaEmail2("teste," , "teste")
+    .then( ({time, to}) =>{
+        console.log(`
+        
+        email enviado com sucesso
+        
+            Time : ${to}
 
-
+            -----------------------
+            To : ${time}
+        `)
+    })
+    .catch( ()=>{
+        console.log('email não enviado')
+})
+})
+.catch( ()=>{
+    console.log('email não enviado')
+}))
+.catch( ()=>{
+    console.log('email não enviado')
+})
