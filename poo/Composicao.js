@@ -37,6 +37,13 @@ class ManipularArquivo{
           this.Criador = new Criar()
 
      }
+
+
+     SalvarListaUsers(){
+          console.log('-----------------------------------------')
+          this.Criador.Cre('Dragão')
+          this.Escritor.Esc()
+     }
 }
 
 let manipulador = new ManipularArquivo()
@@ -45,3 +52,8 @@ manipulador.Criador.Cre('Dragão')
 manipulador.Delete.Del('Dragão')
 manipulador.Escritor.Esc()
 manipulador.Leitor.Ler()
+
+
+
+
+manipulador.SalvarListaUsers()
